@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together AI Testing</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Generated Response from Together AI</h1>
+        <form method="post">
+            <label for="prompt">Enter a Prompt:</label>
+            <input type="text" id="prompt" name="prompt" placeholder="Enter a Prompt">
+            <button type="submit">Submit</button>
+        </form>
+        {% if response_text %}
+        <p>{{ response_text }}</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
