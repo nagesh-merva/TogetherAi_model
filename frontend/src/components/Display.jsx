@@ -49,7 +49,7 @@ function Display() {
                         <Loading />
                     ) : (
                         <div className="px-10 py-5 h-full w-full typing-wrapper" id="output">
-                            <TypingEffect text={outputText} speed={100} />
+                            <TypingEffect text={outputText} speed={20} />
                         </div>
                     )}
                 </div>
