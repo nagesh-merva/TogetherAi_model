@@ -1,15 +1,21 @@
 import { useState } from "react"
 import SideBar from "./SideBar"
+import Loading from "./loading"
+import TypingEffect from './TypingEffect'
+
 import { FaArrowRight } from 'react-icons/fa'
 
 function Display() {
     const [prompt, setPrompt] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [outputText, setOutputText] = useState("")
 
     const GivePrompt = async (event) => {
-        event.preventDefault();
-
+        event.preventDefault()
+        setLoading(true)
+        setOutputText("")
         try {
-            const response = await fetch('http://localhost:8080/', {
+            const response = await fetch('http://127.0.0.1:8080/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -20,8 +26,7 @@ function Display() {
 
             if (response.ok) {
                 const Response = await response.json()
-                const outputtext = document.getElementById("output_text")
-                outputtext.innerText = Response.message
+                setOutputText(Response.message)
             } else {
                 const errorResponse = await response.json()
                 console.error('Failed to get response')
@@ -30,6 +35,8 @@ function Display() {
         } catch (error) {
             console.error('Error:', error)
             alert('Failed due to Bad Connection. Try Again')
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -37,10 +44,14 @@ function Display() {
         <div className="relative h-screen w-full flex">
             <SideBar />
             <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-white">
-                <div className=" mb-32 h-3/5 w-full">
-                    <div className="px-10 py-5 h-full w-auto overflow-y-auto" id="output">
-                        <p id="output_text" className="text-white font-normal text-lg"></p>
-                    </div>
+                <div className="h-3/5 w-full">
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        <div className="px-10 py-5 h-full w-full typing-wrapper" id="output">
+                            <TypingEffect text={outputText} speed={100} />
+                        </div>
+                    )}
                 </div>
                 <form
                     onSubmit={GivePrompt}
