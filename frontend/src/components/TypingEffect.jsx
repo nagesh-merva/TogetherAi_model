@@ -16,9 +16,11 @@ const TypingEffect = ({ text, speed = 20 }) => {
     }, [text, speed])
 
     return (
-        <p className="typing-effect">
-            {displayText}
-        </p>
+        <div className='h-full w-full overflow-y-auto'>
+            <p className="typing-effect ">
+                {displayText}
+            </p>
+        </div>
     )
 }
 

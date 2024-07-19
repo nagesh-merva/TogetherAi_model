@@ -44,11 +44,11 @@ function Display() {
         <div className="relative h-screen w-full flex">
             <SideBar />
             <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-white">
-                <div className="h-3/5 w-full">
+                <div className="h-3/5 w-full ">
                     {loading ? (
                         <Loading />
                     ) : (
-                        <div className="px-10 py-5 h-full w-full typing-wrapper" id="output">
+                        <div className="px-10 py-5 h-full w-full typing-wrapper " id="output">
                             <TypingEffect text={outputText} speed={20} />
                         </div>
                     )}
