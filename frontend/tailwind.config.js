@@ -8,8 +8,13 @@ export default {
     extend: {
       colors: {
         "custom-gray": "#191919",
-        "custom-black": "#0F0F0F"
-      }
+        "custom-black": "#0F0F0F",
+        "custom-white": "#EEEEEE",
+      },
+      fontFamily: {
+        tommy: ["tommy", 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],

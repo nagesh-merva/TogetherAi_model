@@ -36,7 +36,7 @@ function Display() {
     return (
         <div className="relative h-screen w-full flex">
             <SideBar />
-            <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-gray">
+            <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-white">
                 <div className=" mb-32 h-3/5 w-full">
                     <div className="px-10 py-5 h-full w-auto overflow-y-auto" id="output">
                         <p id="output_text" className="text-white font-normal text-lg"></p>

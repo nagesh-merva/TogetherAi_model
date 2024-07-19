@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "tommy";
+    src: url("./assets/MADE TOMMY Regular_PERSONAL USE.otf") format("truetype");
+}
