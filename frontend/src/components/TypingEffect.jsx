@@ -1,5 +1,6 @@
 
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 const TypingEffect = ({ text, speed = 20 }) => {
     const [displayText, setDisplayText] = React.useState('')
@@ -17,9 +18,9 @@ const TypingEffect = ({ text, speed = 20 }) => {
 
     return (
         <div className='h-full w-full overflow-y-auto'>
-            <p className="typing-effect ">
+            <ReactMarkdown className="whitespace-pre-wrap typing-effect">
                 {displayText}
-            </p>
+            </ReactMarkdown>
         </div>
     )
 }

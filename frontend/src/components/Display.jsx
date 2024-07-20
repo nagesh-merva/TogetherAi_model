@@ -1,5 +1,6 @@
 import { useState } from "react"
 import SideBar from "./SideBar"
+import KeyWordsBar from "./KeyWordsBar"
 import Loading from "./loading"
 import TypingEffect from './TypingEffect'
 import SwitchOutput from "./TypeSwitch"
@@ -48,7 +49,7 @@ function Display() {
     return (
         <div className="relative h-screen w-full flex">
             <SideBar />
-            <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-white">
+            <div className="relative flex justify-center items-center h-full w-3/5 bg-custom-white">
                 <SwitchOutput selectedContent={selectedContent} onSelect={handleSelect} />
                 <div className="h-3/5 w-full ">
                     {loading ? (
@@ -61,7 +62,7 @@ function Display() {
                 </div>
                 <form
                     onSubmit={GivePrompt}
-                    className="absolute bottom-5 flex justify-center items-center space-x-3 bg-custom-black drop-shadow-xl shadow-gray-900 p-4 rounded-lg shadow-lg w-3/5 mx-auto mb-4"
+                    className="absolute bottom-5 flex justify-center items-center space-x-3 bg-custom-black drop-shadow-xl shadow-gray-900 p-4 rounded-lg shadow-lg w-4/5 mx-auto mb-4"
                 >
                     <input
                         type="text"
@@ -80,6 +81,7 @@ function Display() {
                     </button>
                 </form>
             </div>
+            <KeyWordsBar />
         </div>
     )
 }
