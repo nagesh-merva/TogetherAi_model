@@ -9,6 +9,7 @@ function Display() {
     const [prompt, setPrompt] = useState("")
     const [loading, setLoading] = useState(false)
     const [outputText, setOutputText] = useState("")
+    const [selectedContent, setSelectedContent] = useState('text')
 
     const GivePrompt = async (event) => {
         event.preventDefault()
@@ -40,11 +41,15 @@ function Display() {
         }
     }
 
+    const handleSelect = (type) => {
+        setSelectedContent(type)
+    }
+
     return (
         <div className="relative h-screen w-full flex">
             <SideBar />
             <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-white">
-                <SwitchOutput />
+                <SwitchOutput selectedContent={selectedContent} onSelect={handleSelect} />
                 <div className="h-3/5 w-full ">
                     {loading ? (
                         <Loading />
