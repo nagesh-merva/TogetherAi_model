@@ -2,7 +2,7 @@ import { useState } from "react"
 import SideBar from "./SideBar"
 import Loading from "./loading"
 import TypingEffect from './TypingEffect'
-
+import SwitchOutput from "./TypeSwitch"
 import { FaArrowRight } from 'react-icons/fa'
 
 function Display() {
@@ -44,6 +44,7 @@ function Display() {
         <div className="relative h-screen w-full flex">
             <SideBar />
             <div className="relative flex justify-center items-center h-full w-4/5 bg-custom-white">
+                <SwitchOutput />
                 <div className="h-3/5 w-full ">
                     {loading ? (
                         <Loading />
